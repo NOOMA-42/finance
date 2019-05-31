@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for item in range(listnum)%}
+        <tr>
+          <td>{{ sheet['symbol'][item] }}</td>
+          <td>{{ sheet['name'][item] }}</td>
+          <td>{{ sheet['shares'][item] }}</td>
+          <td>{{ sheet['price'][item] }}</td>
+          <td>{{ sheet['total'][item] }}</td>
+        </tr>
+        {%endfor%}
+        <tr>
+          <th scope="row">CASH</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ grandcash }}</td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
